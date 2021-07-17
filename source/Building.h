@@ -4,6 +4,14 @@
 #include <vector>
 #include <string>
 
+struct surface {
+	std::string material;
+	double price_m2;
+	double length;
+	double width;
+	double heigth;
+};
+
 struct room {
 	std::string name;
 	std::vector<surface> walls;
@@ -14,23 +22,16 @@ struct room {
 
 };
 
-struct surface {
-	std::string material;
-	double price_m2;
-	double length;
-	double width;
-	double heigth;
-};
-
 class Building {
 public:
 	Building();
 	~Building();
 
-	void add_room(std::string name, int n);
+	void add_rooms(size_t n);
+	void set_room_name(std::string& str, size_t room_number);
 
 private:
-	std::vector<room> rooms_;
+	std::vector<room> room_;
 };
 
 #endif
